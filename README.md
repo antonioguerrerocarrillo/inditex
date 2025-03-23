@@ -1,4 +1,53 @@
 
+### - Descripción
+
+Este proyecto es una implementación de la prueba técnica para Inditex Core Platform, desarrollada utilizando Spring Boot.
+
+El objetivo de la aplicación es exponer un servicio REST que permita consultar el precio de un producto en una fecha y hora determinadas, considerando la prioridad de las tarifas almacenadas en una base de datos H2 en memoria.
+
+Criterios Utilizados
+
+Se ha seguido un enfoque limpio y estructurado, basado en buenas prácticas de desarrollo en Java y Spring Boot:
+
+Arquitectura en capas: Separación clara entre controladores, servicios y repositorios.
+
+DTOs para la exposición de datos y evitar exposición directa de entidades.
+
+Pruebas unitarias y de integración con JUnit y MockMvc.
+
+Gestor de dependencias Maven para la configuración del proyecto.
+
+Tecnologías Utilizadas
+
+Java 17
+
+Spring Boot 3
+
+H2 Database (en memoria)
+
+Spring Data JPA
+
+Spring Web (para la API REST)
+
+JUnit 5 y MockMvc (para pruebas unitarias e integración)
+
+Lombok (para reducir boilerplate code)
+
+Funcionalidad Implementada
+
+Carga de datos en memoria: Se inicializa la base de datos H2 con los datos proporcionados en la prueba.
+
+Endpoint REST para consulta de precios:
+
+Entrada: Fecha/hora de consulta, identificador del producto, identificador de la marca.
+
+Salida: Identificador del producto, marca, tarifa aplicada, rango de fechas de validez y precio final.
+
+Lógica de negocio para aplicar prioridad: En caso de solapamiento de tarifas, se selecciona la de mayor prioridad.
+
+Pruebas unitarias y de integración: Validación del servicio con los casos de prueba requeridos.
+
+
 ## Tests:
 ### Como correr los Tests.
 ```shell
