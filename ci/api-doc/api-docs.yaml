@@ -1,0 +1,62 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /price:
+    get:
+      tags:
+        - price-controller
+      operationId: getPrice
+      parameters:
+        - name: application_date
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: product_id
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: brand_id
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PriceDto'
+components:
+  schemas:
+    PriceDto:
+      required:
+        - end_date
+        - start_date
+      type: object
+      properties:
+        price_list:
+          type: integer
+          format: int64
+        product_id:
+          type: integer
+          format: int64
+        brand_id:
+          type: integer
+          format: int64
+        start_date:
+          type: string
+        end_date:
+          type: string
+        price:
+          type: number
+          format: double
